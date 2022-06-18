@@ -1,29 +1,25 @@
-import {FlatList, StyleSheet, Text, View} from 'react-native';
-import User from "./components/user";
+import {StyleSheet} from 'react-native';
+import UsersComponent from "./components/UsersComponent";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import PostsComponent from "./components/PostsComponent";
+import UserDetailsComponent from "./components/UserDetailsComponent";
+import PostDetailsComponent from "./components/PostDetailsComponent";
 
-let users = [
-    {name:'vasya', age: 31, status: false},
-    {name:'petya', age: 25, status: false},
-    {name:'kolya', age: 33, status: true},
-    {name:'anya', age: 20, status: false},
-    {name:'oleg', age: 32, status: true},
-    {name:'olya', age: 24, status: false},
-    {name:'natasha', age: 27, status: true}
-]
+
+const StackNavigator = createNativeStackNavigator()
 export default function App() {
-  return (
-    <View style={styles.container}>
-<FlatList
-    data={users}
-    renderItem={({item}) => {
-        return <User item={item} />
-    }}
-    keyExtractor={(item, index) => index.toString()}
-   />
-    </View>
-  );
+
+    return (
+        <NavigationContainer>
+            <StackNavigator.Navigator>
+                <StackNavigator.Screen name={'Users'} component={UsersComponent}/>
+                <StackNavigator.Screen name={'Posts'} component={PostsComponent}/>
+                <StackNavigator.Screen name={'UserDetails'} component={UserDetailsComponent}/>
+                <StackNavigator.Screen name={'PostDetails'} component={PostDetailsComponent}/>
+            </StackNavigator.Navigator>
+        </NavigationContainer>
+    );
 }
 
-const styles = StyleSheet.create({
-
-});
+const styles = StyleSheet.create({});
