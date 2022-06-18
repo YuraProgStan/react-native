@@ -19,7 +19,7 @@ const UsersComponent = (props) => {
  return (
          <View>
              <Pressable style={styles.button}  onPress={() => {
-                 navigation.navigate('Posts', {navigation:navigation})
+                 navigation.navigate('Posts')
              }} ><Text style={styles.text}>posts</Text></Pressable>
 
 
