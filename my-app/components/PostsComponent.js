@@ -3,9 +3,8 @@ import {View, Text, FlatList, StyleSheet, Button, RouchableOpacity} from 'react-
 import {postService} from "../src/services/postService";
 import PostComponent from "./PostComponent";
 
-const PostsComponent = ({route}) => {
+const PostsComponent = ({ navigation}) => {
     const [posts, setPosts] = useState([])
-const {params:{navigation}} = route;
     useEffect(() => {
         const apiPosts = async () =>{
           const postsList =  await postService.getPosts();
