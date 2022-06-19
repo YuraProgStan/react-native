@@ -7,6 +7,7 @@ import {Button, FlatList, Image, StyleSheet, Text, View} from "react-native";
                 uri: 'https://assets.survivalinternational.org/pictures/489/4116455578-1f8d781f66-b_screen.jpg'
             }}/>
             <Text>{item.name}-{item.age}</Text>
+            <Text>Hello Android!!!</Text>
             <Button
                 title={'some button'}
             onPress={() => console.log('press')}
