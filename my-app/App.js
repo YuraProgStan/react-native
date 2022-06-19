@@ -1,23 +1,21 @@
 import {StyleSheet} from 'react-native';
 import UsersComponent from "./components/UsersComponent";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
-import PostsComponent from "./components/PostsComponent";
-import UserDetailsComponent from "./components/UserDetailsComponent";
-import PostDetailsComponent from "./components/PostDetailsComponent";
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import PostDrawer from "./components/PostDrawer";
 
 
-const StackNavigator = createNativeStackNavigator()
+const BottomTabNavigator = createBottomTabNavigator();
 export default function App() {
 
     return (
         <NavigationContainer>
-            <StackNavigator.Navigator>
-                <StackNavigator.Screen name={'Users'} component={UsersComponent}/>
-                <StackNavigator.Screen name={'Posts'} component={PostsComponent}/>
-                <StackNavigator.Screen name={'UserDetails'} component={UserDetailsComponent}/>
-                <StackNavigator.Screen name={'PostDetails'} component={PostDetailsComponent}/>
-            </StackNavigator.Navigator>
+            <BottomTabNavigator.Navigator
+                tabBarOptions={{tabBarStyle: {justifyContent: 'center', alignItems: 'center'}}}
+            >
+                <BottomTabNavigator.Screen name={'users'} component={UsersComponent}/>
+                <BottomTabNavigator.Screen name={'posts'} component={PostDrawer}/>
+            </BottomTabNavigator.Navigator>
         </NavigationContainer>
     );
 }

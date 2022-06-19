@@ -24,8 +24,8 @@ const UsersComponent = (props) => {
 
 
          <FlatList data={users} renderItem={({item}) => {
-             return <UserComponent nav={navigation} item={item}/>
-         }} keyExtractor={item => item.id.toString()}/>
+             return <UserComponent nav={navigation} item={item}  />
+         }} keyExtractor={item => item.id.toString()} />
      </View>
  );
 };
