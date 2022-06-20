@@ -25,7 +25,7 @@ export const TodoState = ({children}) => {
     const {changeScreen} = useContext(ScreenContext)
     const [state, dispatch] = useReducer(todoReducer, initialState);
     const addTodo = async (title) => {
-        // const response = await fetch('https://react-native-todolist-ae355-default-rtdb.europe-west1.firebasedatabase.app/todos.json', {
+        // const response = await fetch(`${API_URL}/${id}.json`, {
         //     method: 'POST',
         //     headers: {'Content-Type': 'application/json'},
         //     body: JSON.stringify({title})
@@ -69,7 +69,7 @@ export const TodoState = ({children}) => {
     const updateTodo = async (id, title) => {
         clearError();
         try {
-            // const response = await fetch(`https://react-native-todolist-ae355-default-rtdb.europe-west1.firebasedatabase.app/todos/${id}.json`, {
+            // const response = await fetch(`${API_URL}/${id}.json`, {
             //     method: 'PATCH',
             //     headers: {'Content-Type': 'application/json'},
             //     body: JSON.stringify({title})
