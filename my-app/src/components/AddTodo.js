@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, Button, TextInput, Alert} from 'react-native';
+import {View, StyleSheet, TextInput, Alert, Keyboard} from 'react-native';
 import {THEME} from "../Theme";
+import { AntDesign } from '@expo/vector-icons';
 
 const AddTodo = ({onSubmit}) => {
     const [value, setValue] = useState('')
     const pressHandler = () => {
         if (value.trim()) {
             onSubmit(value);
-            setValue('')
+            setValue('');
+            Keyboard.dismiss()
         } else {
             if (!value.trim()) {
                 Alert.alert('Input can\'t be empty')
@@ -26,10 +28,14 @@ const AddTodo = ({onSubmit}) => {
                        autoCorrect={false}
                        autoCapitalize={'none'}
             />
-            <Button
-                // disabled={!value.trim()}
-                title={'Add'}
-                onPress={pressHandler}/>
+            {/*<Button*/}
+            {/*    // disabled={!value.trim()}*/}
+            {/*    title={'Add'}*/}
+            {/*    onPress={pressHandler}/>*/}
+            <AntDesign.Button
+                onPress={pressHandler}
+                name="pluscircleo" size={24}
+                >Add</AntDesign.Button>
         </View>
     );
 };

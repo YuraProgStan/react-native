@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, TouchableOpacity} from 'react-native';
+import AppText from "./ui/AppText";
 
 const Todo = ({todo, onRemove, onOpen}) => {
     const longPressHandler = () => {
@@ -13,7 +14,7 @@ const Todo = ({todo, onRemove, onOpen}) => {
                             // onLongPress={onRemove.bind(null, todo.id)}
         >
             <View style={styles.todo}>
-                <Text style={styles.title}>{todo.title}</Text>
+                <AppText>{todo.title}</AppText>
             </View>
         </TouchableOpacity>
     );
@@ -31,7 +32,4 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         marginBottom: 10
     },
-    title: {
-        fontFamily: 'roboto-bold'
-    }
 })
