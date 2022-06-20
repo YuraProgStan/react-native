@@ -6,6 +6,7 @@ const Todo = ({todo, onRemove, onOpen}) => {
     const longPressHandler = () => {
         onRemove(todo.id)
     }
+
     return (
         <TouchableOpacity activeOpacity={0.5}
                           onPress={() => onOpen(todo.id)}
